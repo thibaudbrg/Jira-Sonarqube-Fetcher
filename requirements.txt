@@ -1,0 +1,11 @@
+pandas
+matplotlib
+seaborn
+numpy
+colorama
+requests
+python-dotenv
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+colorama

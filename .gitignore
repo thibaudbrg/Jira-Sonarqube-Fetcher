@@ -1,0 +1,31 @@
+# .gitignore for Jira Copilot Analyzer Project
+
+# General
+*.pyc
+*.pyo
+__pycache__/
+*.swp
+.DS_Store
+
+# Virtualenv
+venv/
+env/
+*.cer
+
+# Data directories
+jira/data/
+sonarqube/data/
+
+# Configuration files that contain sensitive information
+.env
+testers_config.json
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Python debug logs or files
+*.log
+
+# Operating System generated files
+ehthumbs.db
+Thumbs.db
