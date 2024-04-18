@@ -28,6 +28,8 @@ if not os.path.exists(data_directory):
     os.makedirs(data_directory)
     logging.info(f"Created directory: {data_directory}")
 
+project_keys_file = "project_keys.json.example"
+
 # SonarQube server details and API token
 API_TOKEN = os.getenv("SONARQUBE_API_TOKEN")
 SONARQUBE_URL = os.getenv("SONARQUBE_URL")
@@ -36,7 +38,10 @@ headers = {"Authorization": f"Basic {base64.b64encode(f'{API_TOKEN}:'.encode('as
 # Metrics to analyze and the start date based on the number of months specified
 metrics = "coverage,bugs,vulnerabilities,code_smells,ncloc,sqale_index"
 start_date = (datetime.now() - timedelta(days=30*args.month)).strftime('%Y-%m-%d')
-project_keys = ["OMS", "nit", "ubp.dione.esignature", "secli_oracle", "PortailGerants_IT_TOOLING_filter", "Ubp.Dione.UserEnrollment"]
+
+def load_project_keys(file_path):
+    with open(file_path, 'r') as file:
+        return json.load(file)
 
 def save_json(data, filename):
     path = os.path.join(data_directory, f"{filename}.json")
@@ -88,7 +93,11 @@ def fetch_issues_detailed(project_key):
         logging.error(f"{Fore.RED}{e}")
         return None
 
+
 def main():
+    logging.info("Loading project keys")
+    project_keys = load_project_keys(project_keys_file)
+
     logging.info("Starting data fetch for projects")
     for project_key in project_keys:
         fetch_and_save_project_data(project_key)

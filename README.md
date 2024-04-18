@@ -62,6 +62,7 @@ python jira/jira_fetch.py -m <months> [-v --verbose] [-h --help]
 python jira/jira_plot.py [-v --verbose] [-h --help]
 ```
 #### SonarQube Scripts 
+Copy the `project_keys.json.example` to `project_keys.json` and edit it to match your configuration.
 - **Fetching Data:** 
 
 Similar to the Jira fetch script, `sonarqube_fetch.py` can be used for fetching data. Usage:

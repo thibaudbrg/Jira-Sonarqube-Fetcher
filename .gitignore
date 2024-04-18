@@ -14,7 +14,9 @@ env/
 
 # Data directories
 jira/data/
+jira/plot/
 sonarqube/data/
+sonarqube/plot/
 
 # Configuration files that contain sensitive information
 .env

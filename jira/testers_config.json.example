@@ -1,17 +1,17 @@
 [
     {
         "name": "Tester Name One",
-        "code": "UNIQUE_CODE_1",
+        "trigram": "UNIQUE_CODE_1",
         "ext": true or false
     },
     {
         "name": "Tester Name Two",
-        "code": "UNIQUE_CODE_2",
+        "trigram": "UNIQUE_CODE_2",
         "ext": true or false
     },
     {
         "name": "Tester Name Three",
         "code": "UNIQUE_CODE_3",
-        "ext": true or false
+        "trigram": true or false
     }
 ]

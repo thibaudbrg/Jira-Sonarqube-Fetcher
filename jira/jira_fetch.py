@@ -88,7 +88,7 @@ def fetch_and_process_issues_for_tester(tester, start_date, end_date):
         extracted_info = extract_relevant_info(search_results)
         if extracted_info:
             folder_name = f"data/{end_date}"
-            filename = f"data_{tester['code']}-{end_date}.json"
+            filename = f"data_{tester['trigram']}-{end_date}.json"
             save_data_to_file(folder_name, filename, extracted_info)
     else:
         logging.error(f"Failed to fetch issues for {tester['name']}. Status code: {response.status_code}")
