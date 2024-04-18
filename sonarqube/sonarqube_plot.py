@@ -18,6 +18,15 @@ if not os.path.exists(plot_directory):
     os.makedirs(plot_directory)
     logging.info("Created plot directory.")
 
+def load_projects(file_path):
+    """Load a list of projects from a JSON file."""
+    try:
+        with open(file_path, 'r') as file:
+            return json.load(file)
+    except FileNotFoundError as e:
+        logging.error(f"{Fore.RED}Error loading project keys from {file_path}: {e}")
+        return []
+
 def load_json(filename):
     """Loads a JSON file from the specified data directory."""
     try:
@@ -135,13 +144,20 @@ def plot_cumulative_effort_over_time(projects):
     plt.close()
     logging.info("Cumulative effort over time plot created.")
 
+
 def main():
     logging.info("Starting plotting process...")
-    projects = ["OMS", "nit", "ubp.dione.esignature", "secli_oracle", "PortailGerants_IT_TOOLING_filter", "Ubp.Dione.UserEnrollment"]
-    plot_metric_evolution(projects)
-    plot_issues_effort(projects)
-    plot_cumulative_effort_over_time(projects)
-    logging.info("Plotting process completed.")
+    projects_file = "./project_keys.json"
+    projects = load_projects(projects_file)
+
+    if projects:
+        plot_metric_evolution(projects)
+        plot_issues_effort(projects)
+        plot_cumulative_effort_over_time(projects)
+        logging.info("Plotting process completed.")
+    else:
+        logging.error("No projects to plot due to an error loading the project list.")
+
 
 if __name__ == "__main__":
     main()
