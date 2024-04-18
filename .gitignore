@@ -13,10 +13,10 @@ env/
 *.cer
 
 # Data directories
-jira/data/
-jira/plot/
-sonarqube/data/
-sonarqube/plot/
+jira/data/*
+jira/plot/*
+sonarqube/data/*
+sonarqube/plot/*
 
 # Configuration files that contain sensitive information
 .env
