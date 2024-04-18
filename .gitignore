@@ -31,3 +31,9 @@ testers_config.json
 # Operating System generated files
 ehthumbs.db
 Thumbs.db
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+*.ipr
+*.iws
